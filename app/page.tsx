@@ -35,6 +35,8 @@ export default function Home() {
         muted
         loop
         playsInline
+        preload="auto"
+        poster=""
       >
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
