@@ -1,7 +1,6 @@
 export const config = {
-  // Put your video file in the public folder and update this path
-  // Example: if your video is at public/video.mp4, use "/video.mp4"
-  videoUrl: "/video.mp4",
+  // AWS S3 hosted video
+  videoUrl: "https://portfolio-elisa-2023.s3.eu-west-1.amazonaws.com/Rubbr+Thron+(YOUTUBE+48k).mp4",
   
   // Video settings
   autoplay: true,
@@ -13,9 +12,10 @@ export const config = {
   showControls: true,
   showInstructions: true,
   
-  // Local file setup (simpler than AWS S3)
-  local: {
-    videoPath: "public/video.mp4", // Path relative to project root
-    supportedFormats: ["mp4", "webm", "ogg"]
+  // AWS S3 info
+  aws: {
+    region: "eu-west-1",
+    bucketName: "portfolio-elisa-2023",
+    videoFileName: "Rubbr+Thron+(YOUTUBE+48k).mp4"
   }
 };
