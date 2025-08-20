@@ -1,6 +1,7 @@
 export const config = {
-  // AWS S3 hosted video
-  videoUrl: "https://portfolio-elisa-2023.s3.eu-west-1.amazonaws.com/Rubbr+Thron+(YOUTUBE+48k).mp4",
+  // YouTube video embed
+  videoUrl: "https://www.youtube.com/watch?v=88bMVbx1dzM",
+  videoType: "youtube", // youtube, direct, or s3
   
   // Video settings
   autoplay: true,
@@ -12,10 +13,14 @@ export const config = {
   showControls: true,
   showInstructions: true,
   
-  // AWS S3 info
-  aws: {
-    region: "eu-west-1",
-    bucketName: "portfolio-elisa-2023",
-    videoFileName: "Rubbr+Thron+(YOUTUBE+48k).mp4"
+  // YouTube settings
+  youtube: {
+    videoId: "88bMVbx1dzM",
+    autoplay: 1,
+    loop: 1,
+    mute: 1,
+    controls: 0,
+    showinfo: 0,
+    rel: 0
   }
 };

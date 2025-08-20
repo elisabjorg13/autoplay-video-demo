@@ -1,55 +1,37 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { YouTubeEmbed } from '@next/third-parties/google';
 import { config } from './config';
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
-
-  // Video URL from config
-  const videoUrl = config.videoUrl;
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log('Autoplay failed:', error);
-      });
-    }
-  }, []);
-
-  const unmuteVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = false;
-      setIsMuted(false);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Full-screen Video Player */}
-      <video
-        ref={videoRef}
-        className="w-full h-screen object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster=""
-      >
-        <source src={videoUrl} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="min-h-screen bg-black relative overflow-hidden flex items-center justify-center">
+      {/* Simple YouTube Video Embed */}
 
-      {/* Unmute Button - stays visible */}
-      <div className="absolute top-8 right-8">
-        <button
-          onClick={unmuteVideo}
-          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-300 border border-white border-opacity-30 text-sm"
-        >
-          🔊 Click to unmute
-        </button>
+      <div>
+        <YouTubeEmbed videoid="88bMVbx1dzM" height={400} width={720} />
+      </div>
+
+      {/* Frame Overlay - Split into top and bottom halves */}
+      <div className="absolute inset-0 z-20 pointer-events-none">
+        {/* Top Half Frame */}
+        <div className="absolute top-0 left-0 right-0">
+          <img
+            src="/top_half.png"
+            alt="Top frame overlay"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
+        {/* Bottom Half Frame */}
+
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <img
+            src="/bottom_half.png"
+            alt="Bottom frame overlay"
+            className="w-full h-auto object-cover"
+          />
+        </div>
       </div>
     </div>
   );
