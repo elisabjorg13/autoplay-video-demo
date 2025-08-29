@@ -15,19 +15,20 @@ export default function Home() {
       </div>
 
       {/* Simple YouTube Video Embed */}
-      <div className="absolute inset-0 flex items-start justify-center pt-40 z-10">
-        <iframe
-          src="https://www.youtube.com/embed/_jgNhfuZPhM?start=12&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
-          width={420}
-          height={200}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="YouTube video player"
-        />
+      <div className="absolute inset-0 flex items-start justify-center z-10" style={{top: '25vh'}}>
+        <div className="w-[98vw] max-w-7xl aspect-video">
+          <iframe
+            src="https://www.youtube.com/embed/_jgNhfuZPhM?start=12&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
+            className="w-full h-full"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="YouTube video player"
+          />
+        </div>
         
         {/* Main Soap Bubble Overlay */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 pointer-events-none z-20" style={{width: 'calc(100% )', height: 'calc(100% - 96px)'}}>
+        <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none z-20" style={{top: '-25vh', width: 'calc(100% + 50px)', height: 'calc(100% + 50px)'}}>
           <img
             src="/SoapBubble.png"
             alt="Soap bubble overlay"
@@ -37,7 +38,7 @@ export default function Home() {
       </div>
 
       {/* Small Bubbles */}
-      <div className="absolute left-2/5 transform -translate-x-1/2 top-[350px] pointer-events-none z-20" style={{width: '120px', height: '110px'}}>
+      <div className="absolute left-2/5 transform -translate-x-1/2 top-3/5 pointer-events-none z-20" style={{width: '120px', height: '110px'}}>
         <img
           src="/SoapBubble.png"
           alt="Small soap bubble 1"
@@ -45,7 +46,7 @@ export default function Home() {
         />
       </div>
       
-      <div className="absolute right-1/8 transform translate-x-1/2 top-[280px] pointer-events-none z-20" style={{width: '100px', height: '100px'}}>
+      <div className="absolute right-3/8 transform translate-x-1/2 top-2/4 pointer-events-none z-20" style={{width: '80px', height: '100px'}}>
         <img
           src="/SoapBubble.png"
           alt="Small soap bubble 2"
@@ -53,7 +54,7 @@ export default function Home() {
         />
       </div>
       
-      <div className="absolute left-3/5 transform -translate-x-1/2 top-[350px] pointer-events-none z-20" style={{width: '80px', height: '170px'}}>
+      <div className="absolute left-3/5 transform -translate-x-1/2 top-4/7 pointer-events-none z-20" style={{width: '40px', height: '170px'}}>
         <img
           src="/SoapBubble.png"
           alt="Small soap bubble 3"
