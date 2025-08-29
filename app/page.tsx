@@ -18,7 +18,7 @@ export default function Home() {
       <div className="absolute inset-0 flex items-start justify-center z-10" style={{top: '12vh'}}>
         <div className="w-[98vw] max-w-7xl aspect-video">
           <iframe
-            src="https://www.youtube.com/embed/_jgNhfuZPhM?start=12&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
+            src="https://www.youtube.com/embed/_jgNhfuZPhM?start=11&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
             className="w-full h-full"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -64,7 +64,7 @@ export default function Home() {
       </div>
 
       {/* Kaomoji at Bottom */}
-      <div className="absolute bottom-30 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
         <pre className="text-white text-xs font-mono text-center leading-none">
 {`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠶⢦⣤⠶⠶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
