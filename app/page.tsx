@@ -18,7 +18,7 @@ export default function Home() {
       <div className="absolute inset-0 flex items-start justify-center z-10" style={{top: '12vh'}}>
         <div className="w-[98vw] max-w-7xl aspect-video">
           <iframe
-            src="https://www.youtube.com/embed/_jgNhfuZPhM?start=11&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
+            src="https://www.youtube.com/embed/_jgNhfuZPhM?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&controls=1&autohide=1&wmode=transparent&playsinline=1"
             className="w-full h-full"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
