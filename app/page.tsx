@@ -7,17 +7,6 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Auto-play muted to show first frame, then pause immediately
-      video.play().then(() => {
-        video.pause();
-      }).catch(() => {
-        // If autoplay fails, that's fine
-      });
-    }
-  }, []);
 
   const handlePlay = async () => {
     const video = videoRef.current;
@@ -51,10 +40,11 @@ export default function Home() {
       <video
         ref={videoRef}
         src="https://portfolio-elisa-2023.s3.eu-west-1.amazonaws.com/Music/luv+uUu_animation+loop.mp4"
+        poster="/Screenshot 2025-09-18 at 15.01.33.png"
         className="w-full h-full object-cover"
         playsInline
         muted
-        preload="auto"
+        preload="metadata"
         onClick={handleVideoClick}
       />
       
