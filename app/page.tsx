@@ -1,11 +1,23 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Auto-play muted to show first frame, then pause immediately
+      video.play().then(() => {
+        video.pause();
+      }).catch(() => {
+        // If autoplay fails, that's fine
+      });
+    }
+  }, []);
 
   const handlePlay = async () => {
     const video = videoRef.current;
@@ -42,7 +54,7 @@ export default function Home() {
         className="w-full h-full object-cover"
         playsInline
         muted
-        preload="metadata"
+        preload="auto"
         onClick={handleVideoClick}
       />
       
@@ -55,8 +67,8 @@ export default function Home() {
           <Image
             src="/PLAYYY.png"
             alt="Play"
-            width={80}
-            height={80}
+            width={50}
+            height={50}
             className="hover:scale-110 transition-transform"
           />
         </button>
