@@ -91,8 +91,9 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
-export default function Page() {
+export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -132,9 +133,9 @@ export default function Page() {
       // Optional: go fullscreen on tap
       const rfs =
         v.requestFullscreen ||
-        // @ts-ignore
+        // @ts-expect-error - webkit/ms fullscreen methods may not be typed
         v.webkitRequestFullscreen ||
-        // @ts-ignore
+        // @ts-expect-error - webkit/ms fullscreen methods may not be typed
         v.msRequestFullscreen;
       if (rfs) { try { await rfs.call(v); } catch {} }
     } catch (e) {
@@ -186,9 +187,11 @@ export default function Page() {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2" style={{borderColor: '#E893E4'}}></div>
               </div>
             ) : (
-              <img
+              <Image
                 src="/PLAYYY.png"
                 alt="Play button"
+                width={60}
+                height={60}
                 className="w-auto h-auto max-w-[60px] max-h-[60px] object-contain"
               />
             )}
