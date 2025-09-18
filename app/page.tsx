@@ -98,13 +98,16 @@ export default function Home() {
   const [started, setStarted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [canPlay, setCanPlay] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
+  // Replace this URL with your Amazon S3 video URL
+  const videoUrl = "https://portfolio-elisa-2023.s3.eu-west-1.amazonaws.com/Music/luv+uUu_animation+loop.mp4";
+  
   useEffect(() => {
-    // Optional: set src here if you prefer dynamic sources
     if (videoRef.current) {
-      videoRef.current.src = "/video.mp4";
+      videoRef.current.src = videoUrl;
     }
-  }, []);
+  }, [videoUrl]);
 
   const onPlayClick = async () => {
     const v = videoRef.current;
@@ -171,9 +174,27 @@ export default function Home() {
           controlsList="nodownload noplaybackrate noremoteplaybook"
           disablePictureInPicture
           onClick={onVideoClick}
-          onCanPlay={() => setCanPlay(true)}
-          onLoadStart={() => setLoading(true)}
-          onLoadedData={() => setLoading(false)}
+          onCanPlay={() => {
+            setCanPlay(true);
+            setLoading(false);
+            console.log("Video can play");
+          }}
+          onLoadStart={() => {
+            setLoading(true);
+            console.log("Video loading started");
+          }}
+          onLoadedData={() => {
+            setLoading(false);
+            console.log("Video data loaded");
+          }}
+          onError={(e) => {
+            setError("Failed to load video");
+            setLoading(false);
+            console.error("Video error:", e);
+          }}
+          onLoadedMetadata={() => {
+            console.log("Video metadata loaded");
+          }}
         />
         {!started && (
           <button
