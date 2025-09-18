@@ -57,8 +57,8 @@ export default function Home() {
           <Image
             src="/PLAYYY.png"
             alt="Play"
-            width={50}
-            height={50}
+            width={30}
+            height={30}
             className="hover:scale-110 transition-transform"
           />
         </button>
