@@ -13,16 +13,13 @@ export default function Home() {
     if (!video) return;
 
     const handleCanPlay = () => setIsLoading(false);
-    const handleWaiting = () => setIsLoading(true);
     const handleLoadedData = () => setIsLoading(false);
 
     video.addEventListener("canplay", handleCanPlay);
-    video.addEventListener("waiting", handleWaiting);
     video.addEventListener("loadeddata", handleLoadedData);
 
     return () => {
       video.removeEventListener("canplay", handleCanPlay);
-      video.removeEventListener("waiting", handleWaiting);
       video.removeEventListener("loadeddata", handleLoadedData);
     };
   }, []);
@@ -67,14 +64,14 @@ export default function Home() {
         onClick={handleVideoClick}
       />
       
-      {/* Loading spinner - show when video is buffering */}
+      {/* Pink loading spinner - show when video is loading */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/20 pointer-events-none">
-          <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-pink-300 border-t-pink-500 rounded-full animate-spin" />
         </div>
       )}
 
-      {/* Play button overlay - only show when not playing and not loading */}
+      {/* Pink play button overlay - show when video is ready and not playing */}
       {!isPlaying && !isLoading && (
         <button
           onClick={handlePlay}
