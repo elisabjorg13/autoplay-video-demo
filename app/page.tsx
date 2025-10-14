@@ -59,7 +59,7 @@ export default function Home() {
       <video
         ref={videoRef}
         src="https://portfolio-elisa-2023.s3.eu-west-1.amazonaws.com/hot+and+bothrd+(depression+talking)_MIRROR.mp4"
-        poster="HotNBothered.png"
+        poster="/HotNbothered.png"
         className="w-full h-full object-cover"
         playsInline
         muted
