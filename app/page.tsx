@@ -9,19 +9,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    // Show loader for exactly 2 seconds, then show play button
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
 
-    const handleCanPlay = () => setIsLoading(false);
-    const handleLoadedData = () => setIsLoading(false);
-
-    video.addEventListener("canplay", handleCanPlay);
-    video.addEventListener("loadeddata", handleLoadedData);
-
-    return () => {
-      video.removeEventListener("canplay", handleCanPlay);
-      video.removeEventListener("loadeddata", handleLoadedData);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const handlePlay = async () => {
